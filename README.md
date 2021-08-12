@@ -7,6 +7,89 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Referrer IP API Document
+
+API to get referrer IP and greeting name if name query provided.
+
+1. Register user 
+   * Resister user with below data request:
+   Url: https://s3.thedigifrog.com/api/register
+   Request type: POSt
+   form data: {
+		name: 'developer',
+		email: 'devtest@zetmail.com',
+		password: '123456',
+		c_passsword: '123456'   
+   }
+
+   * Response
+   {
+   	"success": true,
+   	"data": {
+   		"token": "auth token",
+   		"name": "developer"
+   	},
+   	"message": "User register successfully."
+   }
+
+2. Login user 
+   * Login user with below data request:
+   Url: https://s3.thedigifrog.com/api/login
+   Request type: POST
+   form data: {
+		email: 'devtest@zetmail.com',
+		password: '123456',   
+   }
+
+   * Response
+   {
+   	"success": true,
+   	"data": {
+   		"token": "auth token",
+   		"name": "developer"
+   	},
+   	"message": "User login successfully."
+   }
+
+3. get referrer IP
+   * Get referrer IP with below details:
+   Url: https://s3.thedigifrog.com/api/referrer
+   Request type: GET
+   
+   with headers:
+   Accept: application/json,
+   Authorization: Bearer "Auth token"
+
+   * Response
+   {
+   	"success": true,
+   	"data": {
+   		"ip": "Referrer IP"
+   	},
+   	"message": "Received referrer ip successfully."
+   }
+
+4. get referrer IP with Greetings
+   * Get referrer IP with below details:
+   Url: https://s3.thedigifrog.com/api/referrer?name=developer
+   Request type: GET
+   
+   with headers:
+   Accept: application/json,
+   Authorization: Bearer "Auth token"
+
+   * Response
+   {
+   	"success": true,
+   	"data": {
+   		"ip": "Referrer IP",
+   		"greeting": "developer"
+   	},
+   	"message": "Received referrer ip successfully."
+   }
+
+## Referrer IP API END
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
